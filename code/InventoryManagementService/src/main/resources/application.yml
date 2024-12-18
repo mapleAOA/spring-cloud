@@ -1,0 +1,27 @@
+server:
+  port: 8082
+
+
+spring:
+  application:
+    name: inventory-service
+  cloud:
+    nacos:
+      discovery:
+        # Nacos服务器地址，请根据实际情况修改(默认127.0.0.1:8848)
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8723
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+#sentinel
+feign:
+  sentinel:
+    enabled: true
